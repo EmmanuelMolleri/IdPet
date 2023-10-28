@@ -1,0 +1,17 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/IdPet.Api/.vs/IdPet.Api
+/IdPet.Api/bin/Debug/net7.0
+/IdPet.Api/obj
+/IdPet.ApplicationServices/bin/Debug/net7.0
+/IdPet.ApplicationServices/obj
+/IdPet.CrossCutting/bin/Debug/net7.0
+/IdPet.CrossCutting/obj
+/IdPet.Domain/bin/Debug/net7.0
+/IdPet.Domain/obj
+/IdPet.Infra.Data/bin/Debug/net7.0
+/IdPet.Infra.Data/obj
+/IdPet.Infra.Gateway/obj
