@@ -20,6 +20,11 @@ public class MeicamentoAplicadoConfiguration : IEntityTypeConfiguration<Medicame
             .HasDefaultValue(DateTime.Now);
 
         builder
+            .Property(x => x.Dosagem)
+            .HasColumnType("DECIMAL")
+            .HasDefaultValue(0);
+
+        builder
             .HasOne(x => x.Animal)
             .WithMany(x => x.MedicamentoAplicados)
             .HasForeignKey(x => x.AnimalId);

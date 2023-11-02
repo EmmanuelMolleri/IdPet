@@ -7,9 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
     <Folder Include="EventSystems\" />
-    <Folder Include="Handlers\Commands\" />
   </ItemGroup>
 
   <ItemGroup>

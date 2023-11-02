@@ -12,7 +12,7 @@ namespace IdPet.Api
             var builder = WebApplication.CreateBuilder(args);
             ParserDependencies.Inject(builder.Services);
             DatabaseDependencies.Inject(builder.Services, builder.Configuration);
-            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(EncontrarAnimaisDeUsuarioQuery).Assembly));
+            MediatorDependencies.Inject(builder.Services);
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

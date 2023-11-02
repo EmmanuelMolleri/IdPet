@@ -8,4 +8,5 @@ public class MedicamentoAplicado
     public int MedicamentoId { get; set; }
     public Medicamento Medicamento { get; set; }
     public DateTime DateTime { get; set; }
+    public float Dosagem { get; set; }
 }
