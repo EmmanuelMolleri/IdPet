@@ -1,6 +1,6 @@
-﻿using IdPet.Domain.Configuration;
-using IdPet.Domain.Entities;
+﻿using IdPet.Domain.Entities;
 using IdPet.Domain.Interfaces.Contextos;
+using IdPet.Infra.Data.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 namespace IdPet.Infra.Data.AppContext;

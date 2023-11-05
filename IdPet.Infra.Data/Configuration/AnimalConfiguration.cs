@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IdPet.Domain.Configuration;
+namespace IdPet.Infra.Data.Configuration;
 
 public class AnimalConfiguration : IEntityTypeConfiguration<Animal>
 {
