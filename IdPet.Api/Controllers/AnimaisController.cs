@@ -20,37 +20,37 @@ public class AnimaisController : Controller
         _mediator = mediator;
     }
 
-    [HttpGet("GetAnimaisDeUsuario/{UsuarioId:int}")]
+    [HttpGet("animais/{UsuarioId:int}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<AnimalDto>))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> GetAnimaisDeUsuarioAsync([FromRoute] EncontrarAnimaisDeUsuarioQuery query)
     {
         var result = await _mediator.Send(query);
 
         if (result.IsNullOrEmpty())
         {
-            return NotFound();
+            return NoContent();
         }
 
         return Ok(result);
     }
 
-    [HttpGet("GetHistoricoDeMedicamentos/{AnimalId:int}")]
+    [HttpGet("historico/{AnimalId:int}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<HistoricoMedicamentoDto>))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> GetHistoricoMedicamentoAsync([FromRoute] EncontrarHistoricoVacinacaoQuery query)
     {
         var result = await _mediator.Send(query);
 
         if (result.IsNullOrEmpty())
         {
-            return NotFound();
+            return NoContent();
         }
 
         return Ok(result);
     }
 
-    [HttpPost("PostAdicionarNovoPet")]
+    [HttpPost("adicionar")]
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(IEnumerable<HistoricoMedicamentoDto>))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -65,7 +65,7 @@ public class AnimaisController : Controller
                 return BadRequest();
             }
 
-            return Created("PostAdicionarNovoPet", result);
+            return Created("adicionar", result);
         }
         catch (BusinessException ex)
         {
