@@ -3,7 +3,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
 
 # Porta que o Cloud Run vai usar
-ENV ASPNETCORE_URLS=http://+:8080
+ENV PORT=8080
+ENV ASPNETCORE_URLS=http://+:${PORT}
 ENV ASPNETCORE_ENVIRONMENT=Development
 
 # Imagem para build
