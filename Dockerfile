@@ -1,8 +1,10 @@
 # Imagem base para rodar a aplicação
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+
+# Porta que o Cloud Run vai usar
+ENV ASPNETCORE_URLS=http://+:8080
+ENV ASPNETCORE_ENVIRONMENT=Development
 
 # Imagem para build
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
@@ -33,4 +35,5 @@ RUN dotnet publish "IdPet.Api.csproj" -c Release -o /app/publish /p:UseAppHost=f
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
 ENTRYPOINT ["dotnet", "IdPet.Api.dll"]
