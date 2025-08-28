@@ -1,11 +1,15 @@
 # Imagem base para rodar a aplicação
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
+EXPOSE 8080
+EXPOSE 8081
 
 # Porta que o Cloud Run vai usar
 ENV PORT=8080
 ENV ASPNETCORE_URLS=http://+:${PORT}
 ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENTRYPOINT ["dotnet", "IdPet.Api.dll"]
 
 # Imagem para build
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
